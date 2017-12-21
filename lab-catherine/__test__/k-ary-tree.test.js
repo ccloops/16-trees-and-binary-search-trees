@@ -32,4 +32,10 @@ describe('k-ary-tree.js', () => {
     });
   });
 
+  describe('testing that breadthFirstSearch method functions properly', () => {
+    test('testing that breadthFirstSearch method functions properly', () => {
+      expect(one.breadthFirstSearch(5)).toEqual(five);
+    });
+  });
+
 });

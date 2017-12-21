@@ -14,20 +14,18 @@ KAryTree.prototype.appendChild = function(tree) {
 
 KAryTree.prototype.breadthFirstSearch = function(value) {
   let queue = [];
-  queue.enqueue(this);
+  queue.push(this);
 
   let current = null;
 
-  while(queue.getLength() > 0) {
-    current = queue.dequeue();
+  while(queue.length > 0) {
+    current = queue.shift();
     if(current.value === value) {
       return current;
     }
 
-    console.log(`Visiting ${current.value}`);
-
     for(let child of current._children) {
-      queue.enqueue(child);
+      queue.push(child);
     }
   }
 };
