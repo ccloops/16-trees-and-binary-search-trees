@@ -30,13 +30,40 @@ KAryTree.prototype.breadthFirstSearch = function(value) {
   }
 };
 
-// KAryTree.prototype.breadthFirstToString = function () {
-//   let queue = [];
-//   queue.enqueue(this);
+KAryTree.prototype.breadthFirstToString = function () {
+  let queue = [];
+  queue.push(this);
 
-//   let current = null;
+  let current = null;
+  let newString = '';
   
-//   while 
-// };
+  while(queue.length > 0) {
+    current = queue.shift();
+    newString += `\n${current.value}`;
+
+    for(let child of current._children) {
+      queue.push(child);
+    }
+  } 
+  return newString.trim();
+};
+
+KAryTree.prototype.depthFirstToArray = function () {
+  let stack = [];
+  stack.push(this);
+
+  let current = null;
+  let newArray = [];
+
+  while(stack.length > 0) {
+    current = stack.pop();
+    newArray.push(current.value);
+
+    for(let child of current._children) {
+      stack.push(child);
+    }
+  }
+  return newArray;
+};
 
 module.exports = KAryTree;

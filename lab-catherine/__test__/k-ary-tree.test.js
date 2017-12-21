@@ -25,6 +25,8 @@ describe('k-ary-tree.js', () => {
   describe('testing that append method functions properly', () => {
     test('testing that append method successfully appends values', () => {
       expect(three._children).toEqual([five, six, seven]);
+      expect(one._children).toEqual([two, three, four]);
+      expect(six._children).toEqual([eight]);
     });
   
     test('testing that invalid input throws an error', () => {
@@ -33,8 +35,21 @@ describe('k-ary-tree.js', () => {
   });
 
   describe('testing that breadthFirstSearch method functions properly', () => {
-    test('testing that breadthFirstSearch method functions properly', () => {
+    test('testing that breadthFirstSearch method returns the requested node', () => {
       expect(one.breadthFirstSearch(5)).toEqual(five);
+      expect(one.breadthFirstSearch(6)).toEqual(six);
+    });
+  });
+
+  describe('testing that breadthFirstToString method functions properly', () => {
+    test('testing that breadthFirstToString returns the expected string', () => {
+      expect(one.breadthFirstToString()).toEqual('1\n2\n3\n4\n5\n6\n7\n8');
+    });
+  });
+
+  describe('testing that depthFirstToArray method functions properly', () => {
+    test('testing that depthFirstArray method returns an array of node values in depth first order', () => {
+      expect(one.depthFirstToArray()).toEqual([1, 4, 3, 7, 6, 8, 5, 2]);
     });
   });
 
