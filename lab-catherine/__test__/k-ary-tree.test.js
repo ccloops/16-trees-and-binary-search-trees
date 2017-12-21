@@ -45,6 +45,11 @@ describe('k-ary-tree.js', () => {
     test('testing that breadthFirstToString returns the expected string', () => {
       expect(one.breadthFirstToString()).toEqual('1\n2\n3\n4\n5\n6\n7\n8');
     });
+
+    test('testing that a root node with no children will return only the root node', () => {
+      const oneNode = new KAryTree(1);
+      expect(oneNode.breadthFirstToString()).toEqual('1');
+    });
   });
 
   describe('testing that depthFirstToArray method functions properly', () => {
@@ -52,5 +57,9 @@ describe('k-ary-tree.js', () => {
       expect(one.depthFirstToArray()).toEqual([1, 4, 3, 7, 6, 8, 5, 2]);
     });
   });
-
+    
+  test('testing that a root node with no children will return only the root node', () => {
+    const oneNode = new KAryTree(1);
+    expect(oneNode.depthFirstToArray()).toEqual([1]);
+  });
 });
