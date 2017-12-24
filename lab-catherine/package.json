@@ -1,0 +1,32 @@
+{
+  "name": "lab-catherine",
+  "version": "1.0.0",
+  "description": "Code 401 Lab 16: Binary Search Tree",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest -i --coverage",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccloops/16-trees-and-binary-search-trees.git"
+  },
+  "keywords": [
+    "Binary",
+    "Search",
+    "Tree"
+  ],
+  "author": "Catherine Looper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ccloops/16-trees-and-binary-search-trees/issues"
+  },
+  "homepage": "https://github.com/ccloops/16-trees-and-binary-search-trees#readme",
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "jest": "^22.0.1"
+  }
+}
