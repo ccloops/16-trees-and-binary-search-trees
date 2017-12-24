@@ -1,44 +1,55 @@
 # Code Fellows: Seattle 401 JavaScript - 401d19
 
-##  Lab 16 Binary Search Trees
+##  Lab 16 Binary Search Trees and K-Ary Trees
 
 ### Author:
  Catherine Looper
 
 ### Motivation
 
-In this project, I built a Binary Tree with three methods: A find method that uses in-order traversal. A toString method that uses pre-order traversal, and a toArray method that uses post-order traversal. 
+In this project, I built a Binary Search Tree with four methods: An `insert` method, a `find` method, a `findMinValue` method, and a `remove` method. 
 
-### Big O
-
-#### Time
-
-This project uses O(n) in time where n is the nodes in the binary tree. The functions are recursive.
-
-#### Space/Memory
-
-This project uses O(n) in space/memory where n represents the nodes returned. 
- 
-Memory: relative to the height of the binary tree (the height of this binary tree is 2 (at one)) Every time you traverse you are creating a stack frame
+In this project, I also built a K-ary-Tree with a constructor function and the following prototype methods: `KAryTree.prototype.appendChild`, `KAryTree.prototype.breadthFirstSearch`, `KAryTree.prototype.breadthFirstToString`, and `KAryTree.prototype.depthFirstToArray`. 
 
 ### Build
 
-#### .find Method
+#### K Ary Tree
 
-BinaryTree.prototype.find is a prototype method on the BinaryTree constructor that expects a parameter of 'value'. The value argument must be passed as a number or an error will be thrown. The method accepts a value and will find and return the first node containing that value. If the value is not found in the Binary Tree, then it will return null.
+##### `KAryTree.prototype.appendChild`
 
-#### .toString Method
+This method inserts nodes into the K Ary Tree. It can be called on any node in the tree, as long as the node passed in is an instance of the KAryTree. The Big(O) of time and space should both be constant.
 
-BinaryTree.prototype.toString is a prototype method on the BinaryTree constructor that does not expect parameters. The toString method will take the nodes from the Binary Tree and return the concatenated values separated by newlines in to a string. The Binary Tree must not be null in order to run this function.
+##### `KAryTree.prototype.breadthFirstSearch`
 
-#### .toArray Method
+This method should be called on the root node and will traverse the KAryTree breadth first and will return the node that matches the passed in value or will return null if the value is not found. This will be O(n) for time where n is the size of the tree, and will be constant for space.
 
-BinaryTree.prototype.toArray is a prototype method on the BinaryTree constructor that does not expect parameters. The toArray method will take the nodes from the Binary Tree and return an array containing all of the elements in the binary tree. The Binary Tree must not be null in order to run this function. 
+##### `KAryTree.prototype.breadthFirstToString` 
 
-#### Test Module
+This method should be called on the root node and will traverse the KAryTree breadth first and will return the values in the tree in a string separated by new lines. This is Big O(n) for time complexity since it traverses the tree once. This is Big O(n) for space where n is the length of the string.
 
-The test module has 3 tests for each of the methods on the BinaryTree constructor: .find, .toString, and .toArray.
+##### `KAryTree.prototype.depthFirstToArray`
 
+This method should be called on the root node and will traverse the KAryTree depth first and will return the new array with all of the node values. This function also traverses the tree once so its time complexity is O(n). This is Big O(n) for space where n is the length of the array.
+
+
+#### Binary Search Tree
+
+##### `insert`
+
+This method accepts a value to be inserted into the Binary Search Tree. The value must be a number. The method follows the proper set up of a BST where values larger than the root value will be inserted to the right, and values smaller than the root value will be inserted to the left. Big O of time is O(h) where h is the height of the tree. Big O of Space is constant.
+
+
+##### `find`
+
+This method accepts a value to be found in the Binary Search Tree. The value argument must be passed as a number or an error will be thrown. The method accepts a value and will find and return the first node containing that value. If the value is not found in the Binary Tree, then it will return null. Big O of time is O(h) where h is the height of the tree. Big O of Space is constant.
+
+##### `findMinValue`
+
+This is a helper function that locates the minimum value in the BST to be used in the remove function.
+
+##### `remove`
+
+This method accepts a value and uses that value to locate a node to be removed. In order to successfully remove a node, the BST must be restructured so that it maintains its order. If the root node is removed, then the tree must be reassigned to maintain proper structure. Big O of time is O(h) where h is the height of the tree. Big O of Space is constant.
 
 ### Limitations
 
