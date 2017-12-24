@@ -34,29 +34,43 @@ class BinarySearchTree {
     if(typeof value !== 'number')
       throw new TypeError('Binary Search Tree - value should be a number');
     if(value === this.value)
-      return true;
+      return this;
 
     if(value > this.value) {
       if(this.right !== null)
         return this.right.find(value);
       else
-        return false;
+        return null;
     }
     if(this.left !== null)
       return this.left.find(value);
     else
-      return false;
+      return null;
+  }
+
+  findMinValue() {
+    return this.left ? this.left.findMinValue() : this.value;
+  }
+
+  remove(value) {
+    if(typeof value !== 'number')
+      throw new TypeError('Binary Search Tree - value should be a number');
+
+    if(value < this.value){
+      this.left = this.left && this.left.remove(value);
+
+    } else if (value > this.value){
+      this.right = this.right && this.right.remove(value);
+      
+    } else if (this.left && this.right) {
+      this.value = this.right.findMinValue();
+      this.right = this.right.remove(this.value);
+      
+    } else {
+      return this.left || this.right;
+    }
+    return this;
   }
 }
-
-let bst = new BinarySearchTree(10);
-bst.insert(5);
-bst.insert(2);
-bst.insert(8);
-bst.insert(16);
-
-console.log(bst.find(8));
-console.log(bst.find(16));
-console.log(bst.find(100));
 
 module.exports = BinarySearchTree;
