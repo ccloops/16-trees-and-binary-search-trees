@@ -39,6 +39,11 @@ describe('k-ary-tree.js', () => {
       expect(one.breadthFirstSearch(5)).toEqual(five);
       expect(one.breadthFirstSearch(6)).toEqual(six);
     });
+
+    test('testing that null will be returned if the value is not found', () => {
+      expect(one.breadthFirstSearch(12)).toBeNull();
+      expect(one.breadthFirstSearch(9)).toBeNull();
+    });
   });
 
   describe('testing that breadthFirstToString method functions properly', () => {
