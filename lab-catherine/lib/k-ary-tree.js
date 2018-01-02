@@ -16,10 +16,8 @@ KAryTree.prototype.breadthFirstSearch = function(value) {
   let queue = [];
   queue.push(this);
 
-  let current = null;
-
   while(queue.length > 0) {
-    current = queue.shift();
+    let current = queue.shift();
     if(current.value === value) {
       return current;
     }
@@ -28,6 +26,7 @@ KAryTree.prototype.breadthFirstSearch = function(value) {
       queue.push(child);
     }
   }
+  return null;
 };
 
 KAryTree.prototype.breadthFirstToString = function () {

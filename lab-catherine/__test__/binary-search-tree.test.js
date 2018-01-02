@@ -45,5 +45,8 @@ describe('testing binary-search-tree.js', () => {
       expect(bst.root.right.right.value).toEqual(18);
     });
 
+    test('testing that remove function will throw an error with invalid input', () => {
+      expect(() => bst.insert('invalid')).toThrow();
+    });
   });
 }); 
