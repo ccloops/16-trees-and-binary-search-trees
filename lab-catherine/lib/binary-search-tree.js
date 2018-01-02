@@ -76,6 +76,9 @@ class BinarySearchTree {
 
 
   _remove(node, value, parentNode) {
+    if(typeof value !== 'number') {
+      throw new TypeError('Binary Search Tree - value must be a number');
+    }
 
     if(!node)
       return null;
